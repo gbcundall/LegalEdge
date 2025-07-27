@@ -1,15 +1,15 @@
 
-# Ally - AI Contract Assistant
+# LegalEdge - AI Contract Assistant
 
 ### Solution Overview 
 
-__Ally – AI Contract Assistant__ is a contract analysis and review tool featuring a Word plugin that uses Azure OpenAI Service for analyzing contracts, real-time Q&A, and auto-markup based on legal policies. It helps legal professionals converse naturally, verify clauses, identify risks, and ensure consistency in reviews, saving time and boosting efficiency. 
+__LegalEdge – AI Contract Assistant__ is a contract analysis and review tool featuring a Word plugin that uses Azure OpenAI Service for analyzing contracts, real-time Q&A, and auto-markup based on legal policies. It helps legal professionals converse naturLegalEdge, verify clauses, identify risks, and ensure consistency in reviews, saving time and boosting efficiency. 
 
-__Ally – AI Contract Assistant__  is an innovative solution meticulously crafted to transform the landscape of contract analysis and review for legal professionals. This sophisticated tool harnesses the power of advanced artificial intelligence to streamline the intricate processes of document summarization, comprehensive contract analysis and review, legal policy compliance verification, and the application of corrections and redlining. By integrating seamlessly with Microsoft Word within the Office 365 suite, the plugin provides a native and intuitive user experience. 
+__LegalEdge – AI Contract Assistant__  is an innovative solution meticulously crafted to transform the landscape of contract analysis and review for legal professionals. This sophisticated tool harnesses the power of advanced artificial intelligence to streamline the intricate processes of document summarization, comprehensive contract analysis and review, legal policy compliance verification, and the application of corrections and redlining. By integrating seamlessly with Microsoft Word within the Office 365 suite, the plugin provides a native and intuitive user experience. 
 
 At the heart of this plugin is the robust infrastructure of Azure, coupled with Azure AI’s cutting-edge capabilities, delivering an unparalleled end-to-end contract analysis and review solution. This integration not only enhances the speed and accuracy of contract processing but also ensures that legal professionals can focus on more strategic aspects of their work. 
 
-__Ally – AI Contract Assistant__  is designed with flexibility and scalability in mind. Its open-source code base allows organizations to tailor the solution to their unique requirements, offering a customizable platform that can evolve alongside changing business needs. Whether deployed in a local environment or within a larger cloud-based infrastructure using Docker and Azure Kubernetes Service (AKS), this plugin adapts to diverse IT architectures, ensuring optimal performance and reliability. 
+__LegalEdge – AI Contract Assistant__  is designed with flexibility and scalability in mind. Its open-source code base allows organizations to tailor the solution to their unique requirements, offering a customizable platform that can evolve alongside changing business needs. Whether deployed in a local environment or within a larger cloud-based infrastructure using Docker and Azure Kubernetes Service (AKS), this plugin adapts to diverse IT architectures, ensuring optimal performance and reliability. 
 
 By leveraging this plugin, legal professionals can significantly reduce the time spent on manual tasks, thereby increasing overall productivity and enabling a sharper focus on delivering value to clients. Embrace the future of legal technology with a solution that combines Microsoft’s best-of-breed offerings to redefine efficiency and efficacy in legal contract analysis and review. 
 
@@ -22,13 +22,13 @@ By leveraging this plugin, legal professionals can significantly reduce the time
 - Efficient Contract Analysis & Review: Streamline the process of contract review with AI-driven summarization and analysis. 
 - Policy and Compliance Checks: Ensure compliance with company legal policies through integrated policy checks. 
 - Customizable Solution: Modify and extend functionalities with access to the open-source code. 
-- Flexible Deployment Options: Deploy locally or use Docker with AKS, or integrate with Azure AI Foundry and PromptFlow. 
+- Flexible Deployment Options: Deploy locLegalEdge or use Docker with AKS, or integrate with Azure AI Foundry and PromptFlow. 
 
 ### Business Impact: 
 
 Legal professionals spend about 50% of their time reviewing repetitive contracts, which is a major source of frustration and reduces their ability to focus on strategic tasks. This manual workload negatively impacts employee morale, leading to burnout, high turnover rates and inefficiencies in the contract review process. ​ 
 
-Enabled by the Azure OpenAI Service, Ally – AI Contract Assistant offers significant business impact through contract analysis and review, saving time, and enhancing the delivery of legal services.  
+Enabled by the Azure OpenAI Service, LegalEdge – AI Contract Assistant offers significant business impact through contract analysis and review, saving time, and enhancing the delivery of legal services.  
 
 ### Industry​
 
@@ -49,17 +49,17 @@ Enabled by the Azure OpenAI Service, Ally – AI Contract Assistant offers signi
 - **Efficient Contract Review:** Streamline the process of contract review with AI-driven summarization and analysis.  
 - **Policy and Compliance Checks:** Ensure compliance with company policies through integrated policy checks.  
 - **Customizable Solution:** Modify and extend functionalities with access to the open-source code.  
-- **Flexible Deployment Options:** Deploy locally or use Docker with AKS, or integrate with Azure AI Studio and PromptFlow.  
+- **Flexible Deployment Options:** Deploy locLegalEdge or use Docker with AKS, or integrate with Azure AI Studio and PromptFlow.  
   
 ## Architecture  
   
 The plugin's architecture consists of a front-end UI, developed in JavaScript, integrated directly into Microsoft Word as an Office 365 plugin. The back end employs Azure PromptFlow, which acts as an orchestration engine triggered by plugin commands. PromptFlow operates in AKS with Docker or in Azure AI Studio, utilizing two Azure AI Search indexes—one for document data and another for company policy. The runtime for PromptFlow is Python, enabling Azure OpenAI LLM calls for summarization and compliance checks. The solution's configuration, including API keys, is stored within the plugin and can be modified via the configuration tab.  
   
-![High-Level Design](./files/ally-hld.png)
+![High-Level Design](./files/LegalEdge-hld.png)
 
 ## Prerequisites  
   
-To install and run the plugin locally, ensure you have the following:  
+To install and run the plugin locLegalEdge, ensure you have the following:  
   
 - Office 365  
 - Node.js and NPM  
@@ -95,7 +95,7 @@ this can be done using PF Extention, please install PromptFlow Extention for VS 
 > [!NOTE]
 > please do install all PF prereqesist listed under the extention.
 
-8. create a connector under the connectrs tub with the name "ally"
+8. create a connector under the connectrs tub with the name "LegalEdge"
 
 ![Connector](./files/Screenshot%202025-01-05%20133650.png)
 
@@ -103,7 +103,7 @@ in the opened screen fill in the next information:
 
 ```
 $schema: https://azuremlschemas.azureedge.net/promptflow/latest/CustomConnection.schema.json
-name: "ally"
+name: "LegalEdge"
 type: custom
 configs:
   openai_endpoint: "https://xxxxxxxxxx.openai.azure.com/"
@@ -121,7 +121,7 @@ secrets:
 > remove all unneeded key/paramiters like key1 if its shows in the created schema before you save
 
 > [!NOTE]
-> the name "ally" is used in the ymal file so if you choose to use a connector with diffrent name, do change it in the PF yaml
+> the name "LegalEdge" is used in the ymal file so if you choose to use a connector with diffrent name, do change it in the PF yaml
 
 8. Run `pf flow serve --source . --port 8083 --host localhost`
 9. This will load a local web on port `8083` and can be used by the Plugin
@@ -184,17 +184,17 @@ Working with the Docker file steps:
 3. Run the container with port `8083` and the next paramiters:
 
 - configs:
-  - "ALLY_OPENAI_ENDPOINT=https://xxxxxx.openai.azure.com/",
-  - "ALLY_SEARCH_DOCUMENT_INDEX=legal-documents",
-  - "ALLY_SEARCH_POLICY_INDEX=legal-instructions",
-  - "ALLY_OPENAI_MODEL_DEPLOYMENT=gpt4o",
-  - "ALLY_OPENAI_EMBEDDING_DEPLOYMENT=ada002",
-  - "ALLY_OPENAI_API_VERSION=2024-08-01-preview",
-  - "ALLY_SEARCH_ENDPOINT=https://yyyyy.search.windows.net",
+  - "LegalEdge_OPENAI_ENDPOINT=https://xxxxxx.openai.azure.com/",
+  - "LegalEdge_SEARCH_DOCUMENT_INDEX=legal-documents",
+  - "LegalEdge_SEARCH_POLICY_INDEX=legal-instructions",
+  - "LegalEdge_OPENAI_MODEL_DEPLOYMENT=gpt4o",
+  - "LegalEdge_OPENAI_EMBEDDING_DEPLOYMENT=ada002",
+  - "LegalEdge_OPENAI_API_VERSION=2024-08-01-preview",
+  - "LegalEdge_SEARCH_ENDPOINT=https://yyyyy.search.windows.net",
 
 - secrets:
-  - "ALLY_OPENAI_KEY=xxxxxxx",
-  - "ALLY_SEARCH_KEY=yyyyyyy",
+  - "LegalEdge_OPENAI_KEY=xxxxxxx",
+  - "LegalEdge_SEARCH_KEY=yyyyyyy",
 
 4. Run the Word Plugin: 
 - 4.1. Navigate to the solution directory.  
@@ -205,7 +205,7 @@ Working with the Docker file steps:
   
 This plugin is free to use and modify by anyone. The GitHub repository is also free to use and change.  
   
-## Team behind Ally – AI Contract Assistant 
+## Team behind LegalEdge – AI Contract Assistant 
 
 - **Esther Dediashvili** – Senior Solution Specialist – AI Global Black Belt, EMEA    
 - **Lior Armiev** – Senior Technical Specialist​ – AI Global Black Belt, EMEA    
